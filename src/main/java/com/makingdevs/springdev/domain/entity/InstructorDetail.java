@@ -27,14 +27,18 @@ public class InstructorDetail {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Column(name = "id", nullable = false)
-  private int id;
+  private Long id;
 
-  @Column(name = "birthday", nullable = false)
+  @Column(name = "birthdate", nullable = false)
   @Temporal(TemporalType.DATE)
-  private Date birthday;
+  private Date birthdate;
 
   @Column(name = "blood_type", nullable = false)
   @Enumerated(EnumType.STRING)
   private BloodType bloodType;
 
+  public InstructorDetail(Date birthdate, BloodType bloodType) {
+    this.birthdate = birthdate;
+    this.bloodType = bloodType;
+  }
 }
