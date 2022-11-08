@@ -33,6 +33,9 @@ public class Course {
   @Column(name = "title", nullable = false)
   private String title;
 
+  @Column(name = "department_id", nullable = false)
+  private Long departmentId;
+
   @ManyToOne(
     fetch = FetchType.EAGER,
     cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH}
@@ -55,9 +58,10 @@ public class Course {
   @JoinColumn(name = "course_id")
   private List<Review> reviews;
 
-  public Course(String title, Instructor instructor) {
+  public Course(String title, Instructor instructor, Long departmentId) {
     this.title = title;
     this.instructor = instructor;
+    this.departmentId = departmentId;
   }
 
 }

@@ -3,7 +3,9 @@ package com.makingdevs.springdev.service.impl;
 import com.makingdevs.springdev.domain.courses.entity.Course;
 import com.makingdevs.springdev.domain.courses.entity.Instructor;
 import com.makingdevs.springdev.domain.courses.repository.CourseRepository;
+import com.makingdevs.springdev.domain.departments.entity.Department;
 import com.makingdevs.springdev.service.CourseService;
+import com.makingdevs.springdev.service.DepartmentService;
 import com.makingdevs.springdev.service.InstructorService;
 import com.makingdevs.springdev.service.dto.CourseDto;
 import com.makingdevs.springdev.service.mapper.CourseMapper;
@@ -20,13 +22,16 @@ public class CourseServiceImpl implements CourseService {
 
   private final CourseRepository courseRepository;
   private final InstructorService instructorService;
+  private final DepartmentService departmentService;
 
   public CourseServiceImpl(
     CourseRepository courseRepository,
-    InstructorService instructorService
+    InstructorService instructorService,
+    DepartmentService departmentService
   ) {
     this.courseRepository = courseRepository;
     this.instructorService = instructorService;
+    this.departmentService = departmentService;
   }
 
   @Override
@@ -48,16 +53,22 @@ public class CourseServiceImpl implements CourseService {
 
   @Override
   @Transactional(propagation = Propagation.REQUIRES_NEW)
-  public Course saveCourse(CourseRequest courseRequest) {
+  public CourseDto saveCourse(CourseRequest courseRequest) {
     String courseTitle = courseRequest.getTitle();
     Long instructorId = courseRequest.getInstructorId();
+    Long departmentId = courseRequest.getDepartmentId();
 
     Optional<Course> courseFound = findCourseByTitle(courseTitle);
     Optional<Instructor> instructorFound = instructorService.findInstructorById(instructorId);
+    Optional<Department> departmentFound = departmentService.findDepartmentById(departmentId);
 
-    if (!courseFound.isPresent() && instructorFound.isPresent()) {
-      Course course = CourseMapper.toEntity(courseTitle, instructorFound.get());
-      return saveCourse(course);
+    if (!courseFound.isPresent() && instructorFound.isPresent() && departmentFound.isPresent()) {
+      Course course = CourseMapper.toEntity(
+        courseTitle,
+        instructorFound.get(),
+        departmentFound.get()
+      );
+      return CourseMapper.toDetailedDto(saveCourse(course));
     }
 
     return null;

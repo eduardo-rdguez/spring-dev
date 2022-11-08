@@ -13,7 +13,7 @@ public interface CourseService {
 
   Optional<Course> findCourseById(Long id);
 
-  Course saveCourse(CourseRequest courseRequest);
+  CourseDto saveCourse(CourseRequest courseRequest);
 
   Course saveCourse(Course course);
 

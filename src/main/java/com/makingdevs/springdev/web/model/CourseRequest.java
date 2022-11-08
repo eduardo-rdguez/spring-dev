@@ -17,4 +17,8 @@ public class CourseRequest {
   @NotNull
   private Long instructorId;
 
+  @JsonProperty("department_id")
+  @NotNull
+  private Long departmentId;
+
 }

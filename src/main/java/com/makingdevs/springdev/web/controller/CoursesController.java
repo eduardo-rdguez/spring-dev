@@ -48,7 +48,7 @@ public class CoursesController {
 
   @PostMapping
   @ResponseBody
-  public Course saveCourse(@Valid @RequestBody CourseRequest courseRequest) {
+  public CourseDto saveCourse(@Valid @RequestBody CourseRequest courseRequest) {
     return courseService.saveCourse(courseRequest);
   }
 
