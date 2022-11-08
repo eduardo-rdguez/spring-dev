@@ -1,8 +1,8 @@
 package com.makingdevs.springdev.service.impl;
 
-import com.makingdevs.springdev.domain.entity.Course;
-import com.makingdevs.springdev.domain.entity.Instructor;
-import com.makingdevs.springdev.domain.repository.CourseRepository;
+import com.makingdevs.springdev.domain.courses.entity.Course;
+import com.makingdevs.springdev.domain.courses.entity.Instructor;
+import com.makingdevs.springdev.domain.courses.repository.CourseRepository;
 import com.makingdevs.springdev.service.CourseService;
 import com.makingdevs.springdev.service.InstructorService;
 import com.makingdevs.springdev.service.dto.CourseDto;

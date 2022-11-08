@@ -1,6 +1,6 @@
 package com.makingdevs.springdev.service.mapper;
 
-import com.makingdevs.springdev.domain.entity.InstructorDetail;
+import com.makingdevs.springdev.domain.courses.entity.InstructorDetail;
 import com.makingdevs.springdev.web.model.InstructorRequest;
 import org.springframework.stereotype.Component;
 

@@ -1,6 +1,6 @@
 package com.makingdevs.springdev.service.mapper;
 
-import com.makingdevs.springdev.domain.entity.Review;
+import com.makingdevs.springdev.domain.courses.entity.Review;
 import com.makingdevs.springdev.service.dto.ReviewDto;
 import org.springframework.stereotype.Component;
 

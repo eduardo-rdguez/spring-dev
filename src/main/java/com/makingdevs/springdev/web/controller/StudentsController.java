@@ -1,6 +1,6 @@
 package com.makingdevs.springdev.web.controller;
 
-import com.makingdevs.springdev.domain.entity.Student;
+import com.makingdevs.springdev.domain.courses.entity.Student;
 import com.makingdevs.springdev.service.StudentService;
 import com.makingdevs.springdev.service.dto.StudentDto;
 import com.makingdevs.springdev.service.mapper.StudentMapper;

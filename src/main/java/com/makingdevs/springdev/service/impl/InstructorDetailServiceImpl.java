@@ -1,7 +1,7 @@
 package com.makingdevs.springdev.service.impl;
 
-import com.makingdevs.springdev.domain.entity.InstructorDetail;
-import com.makingdevs.springdev.domain.repository.InstructorDetailRepository;
+import com.makingdevs.springdev.domain.courses.entity.InstructorDetail;
+import com.makingdevs.springdev.domain.courses.repository.InstructorDetailRepository;
 import com.makingdevs.springdev.service.InstructorDetailService;
 import com.makingdevs.springdev.service.mapper.InstructorDetailMapper;
 import com.makingdevs.springdev.web.model.InstructorRequest;

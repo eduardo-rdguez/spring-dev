@@ -7,6 +7,7 @@ import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.boot.orm.jpa.EntityManagerFactoryBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
@@ -19,29 +20,32 @@ import java.util.Objects;
 @Configuration
 @EnableTransactionManagement
 @EnableJpaRepositories(
-  basePackages = "com.makingdevs.springdev.domain.repository",
+  basePackages = "com.makingdevs.springdev.domain.courses.repository",
   entityManagerFactoryRef = "coursesEntityManagerFactory",
   transactionManagerRef = "coursesTransactionManager"
 )
 public class CoursesDataSourceConfig {
 
   @Bean
+  @Primary
   @ConfigurationProperties("spring.datasource.courses")
   public DataSource coursesDataSource() {
     return DataSourceBuilder.create().type(HikariDataSource.class).build();
   }
 
   @Bean
+  @Primary
   public LocalContainerEntityManagerFactoryBean coursesEntityManagerFactory(
     EntityManagerFactoryBuilder builder
   ) {
     return builder
       .dataSource(coursesDataSource())
-      .packages("com.makingdevs.springdev.domain.entity")
+      .packages("com.makingdevs.springdev.domain.courses.entity")
       .build();
   }
 
   @Bean
+  @Primary
   PlatformTransactionManager coursesTransactionManager(
     @Qualifier("coursesEntityManagerFactory") LocalContainerEntityManagerFactoryBean coursesEntityManagerFactory
   ) {

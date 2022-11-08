@@ -1,6 +1,6 @@
-package com.makingdevs.springdev.domain.repository;
+package com.makingdevs.springdev.domain.courses.repository;
 
-import com.makingdevs.springdev.domain.entity.InstructorDetail;
+import com.makingdevs.springdev.domain.courses.entity.InstructorDetail;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

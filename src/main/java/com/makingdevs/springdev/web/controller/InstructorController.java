@@ -1,6 +1,6 @@
 package com.makingdevs.springdev.web.controller;
 
-import com.makingdevs.springdev.domain.entity.Instructor;
+import com.makingdevs.springdev.domain.courses.entity.Instructor;
 import com.makingdevs.springdev.service.InstructorService;
 import com.makingdevs.springdev.service.dto.InstructorDto;
 import com.makingdevs.springdev.service.mapper.InstructorMapper;

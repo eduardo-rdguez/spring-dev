@@ -1,4 +1,4 @@
-package com.makingdevs.springdev.domain.entity;
+package com.makingdevs.springdev.domain.courses.entity;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;

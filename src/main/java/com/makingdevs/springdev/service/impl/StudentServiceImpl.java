@@ -1,7 +1,7 @@
 package com.makingdevs.springdev.service.impl;
 
-import com.makingdevs.springdev.domain.entity.Student;
-import com.makingdevs.springdev.domain.repository.StudentRepository;
+import com.makingdevs.springdev.domain.courses.entity.Student;
+import com.makingdevs.springdev.domain.courses.repository.StudentRepository;
 import com.makingdevs.springdev.service.StudentService;
 import com.makingdevs.springdev.service.dto.StudentDto;
 import com.makingdevs.springdev.service.mapper.StudentMapper;

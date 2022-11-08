@@ -1,7 +1,7 @@
 package com.makingdevs.springdev.service.mapper;
 
-import com.makingdevs.springdev.domain.entity.Course;
-import com.makingdevs.springdev.domain.entity.Instructor;
+import com.makingdevs.springdev.domain.courses.entity.Course;
+import com.makingdevs.springdev.domain.courses.entity.Instructor;
 import com.makingdevs.springdev.service.dto.CourseDto;
 import com.makingdevs.springdev.service.dto.InstructorDto;
 import com.makingdevs.springdev.service.dto.StudentDto;

@@ -1,6 +1,6 @@
 package com.makingdevs.springdev.service;
 
-import com.makingdevs.springdev.domain.entity.Instructor;
+import com.makingdevs.springdev.domain.courses.entity.Instructor;
 import com.makingdevs.springdev.service.dto.InstructorDto;
 import com.makingdevs.springdev.web.model.InstructorRequest;
 
