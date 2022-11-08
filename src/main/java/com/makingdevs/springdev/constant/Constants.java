@@ -1,4 +1,4 @@
-package com.makingdevs.springdev.constants;
+package com.makingdevs.springdev.constant;
 
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;

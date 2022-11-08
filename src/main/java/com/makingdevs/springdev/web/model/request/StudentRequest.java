@@ -1,7 +1,7 @@
 package com.makingdevs.springdev.web.model.request;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.makingdevs.springdev.constants.Constants;
+import com.makingdevs.springdev.constant.Constants;
 import lombok.Data;
 
 import javax.validation.constraints.Email;
