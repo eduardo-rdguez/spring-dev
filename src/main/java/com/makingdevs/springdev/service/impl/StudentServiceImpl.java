@@ -37,17 +37,17 @@ public class StudentServiceImpl implements StudentService {
 
   @Override
   @Transactional(propagation = Propagation.REQUIRES_NEW)
-  public Student saveStudent(StudentRequest studentRequest) {
+  public StudentDto saveStudent(StudentRequest studentRequest) {
     Optional<Student> studentFound = findStudentByDni(
       studentRequest.getDni()
     );
 
     if (!studentFound.isPresent()) {
       Student student = StudentMapper.toEntity(studentRequest);
-      return studentRepository.save(student);
+      return StudentMapper.toDetailedDto(studentRepository.save(student));
     }
 
-    return studentFound.get();
+    return StudentMapper.toDetailedDto(studentFound.get());
   }
 
   @Transactional(readOnly = true)

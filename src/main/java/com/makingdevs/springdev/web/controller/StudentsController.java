@@ -42,7 +42,7 @@ public class StudentsController {
 
   @PostMapping
   @ResponseBody
-  public Student saveStudent(@Valid @RequestBody StudentRequest studentRequest) {
+  public StudentDto saveStudent(@Valid @RequestBody StudentRequest studentRequest) {
     return studentService.saveStudent(studentRequest);
   }
 }

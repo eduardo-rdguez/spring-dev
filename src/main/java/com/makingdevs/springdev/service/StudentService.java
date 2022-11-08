@@ -11,7 +11,7 @@ public interface StudentService {
 
   List<StudentDto> findAllStudents();
 
-  Student saveStudent(StudentRequest studentRequest);
+  StudentDto saveStudent(StudentRequest studentRequest);
 
   Optional<Student> findStudentById(Long studentId);
 
