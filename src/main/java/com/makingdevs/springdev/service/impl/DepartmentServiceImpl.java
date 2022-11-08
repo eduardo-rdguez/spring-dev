@@ -2,7 +2,7 @@ package com.makingdevs.springdev.service.impl;
 
 import com.makingdevs.springdev.domain.departments.entity.Department;
 import com.makingdevs.springdev.domain.departments.repository.DepartmentRepository;
-import com.makingdevs.springdev.exception.NotFoundException;
+import com.makingdevs.springdev.exception.EntityNotFoundException;
 import com.makingdevs.springdev.service.DepartmentService;
 import com.makingdevs.springdev.service.dto.DepartmentDto;
 import com.makingdevs.springdev.service.mapper.DepartmentMapper;
@@ -37,7 +37,7 @@ public class DepartmentServiceImpl implements DepartmentService {
       return department.get();
     }
 
-    throw new NotFoundException(Department.class);
+    throw new EntityNotFoundException(Department.class);
   }
 
   @Override

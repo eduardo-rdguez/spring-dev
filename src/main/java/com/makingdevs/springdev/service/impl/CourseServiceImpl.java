@@ -4,7 +4,7 @@ import com.makingdevs.springdev.domain.courses.entity.Course;
 import com.makingdevs.springdev.domain.courses.entity.Instructor;
 import com.makingdevs.springdev.domain.courses.repository.CourseRepository;
 import com.makingdevs.springdev.domain.departments.entity.Department;
-import com.makingdevs.springdev.exception.NotFoundException;
+import com.makingdevs.springdev.exception.EntityNotFoundException;
 import com.makingdevs.springdev.service.CourseService;
 import com.makingdevs.springdev.service.DepartmentService;
 import com.makingdevs.springdev.service.InstructorService;
@@ -50,7 +50,7 @@ public class CourseServiceImpl implements CourseService {
       return course.get();
     }
 
-    throw new NotFoundException(Course.class);
+    throw new EntityNotFoundException(Course.class);
   }
 
   @Transactional(readOnly = true)
