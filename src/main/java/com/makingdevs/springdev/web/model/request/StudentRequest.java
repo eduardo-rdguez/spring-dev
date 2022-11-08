@@ -6,6 +6,7 @@ import lombok.Data;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 @Data
@@ -19,11 +20,13 @@ public class StudentRequest {
   @JsonProperty("first_name")
   @NotBlank
   @Size(max = 45)
+  @Pattern(regexp = Constants.LETTERS_REGEX)
   private String firstName;
 
   @JsonProperty("last_name")
   @NotBlank
   @Size(max = 45)
+  @Pattern(regexp = Constants.LETTERS_REGEX)
   private String lastName;
 
   @JsonProperty("email")
