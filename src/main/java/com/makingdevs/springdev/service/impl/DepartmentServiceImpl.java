@@ -2,6 +2,7 @@ package com.makingdevs.springdev.service.impl;
 
 import com.makingdevs.springdev.domain.departments.entity.Department;
 import com.makingdevs.springdev.domain.departments.repository.DepartmentRepository;
+import com.makingdevs.springdev.exception.NotFoundException;
 import com.makingdevs.springdev.service.DepartmentService;
 import com.makingdevs.springdev.service.dto.DepartmentDto;
 import com.makingdevs.springdev.service.mapper.DepartmentMapper;
@@ -29,8 +30,14 @@ public class DepartmentServiceImpl implements DepartmentService {
 
   @Override
   @Transactional(readOnly = true)
-  public Optional<Department> findDepartmentById(Long id) {
-    return departmentRepository.findById(id);
+  public Department findDepartmentById(Long id) {
+    Optional<Department> department = departmentRepository.findById(id);
+
+    if (department.isPresent()) {
+      return department.get();
+    }
+
+    throw new NotFoundException(Department.class);
   }
 
   @Override

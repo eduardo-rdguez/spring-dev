@@ -9,7 +9,7 @@ import java.util.Optional;
 
 public interface DepartmentService {
 
-  Optional<Department> findDepartmentById(Long id);
+  Department findDepartmentById(Long id);
 
   Optional<Department> findDepartmentByName(String name);
 

@@ -1,6 +1,5 @@
 package com.makingdevs.springdev.web.controller;
 
-import com.makingdevs.springdev.domain.courses.entity.Course;
 import com.makingdevs.springdev.service.CourseService;
 import com.makingdevs.springdev.service.CourseStudentService;
 import com.makingdevs.springdev.service.dto.CourseDto;
@@ -16,7 +15,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/v1/courses")
@@ -42,8 +40,7 @@ public class CoursesController {
   @GetMapping("/{id}")
   @ResponseBody
   public CourseDto findCourseById(@PathVariable("id") Long id) {
-    Optional<Course> course = courseService.findCourseById(id);
-    return course.map(CourseMapper::toDetailedDto).orElse(null);
+    return CourseMapper.toDetailedDto(courseService.findCourseById(id));
   }
 
   @PostMapping

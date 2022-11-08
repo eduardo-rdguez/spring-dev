@@ -5,13 +5,12 @@ import com.makingdevs.springdev.service.dto.CourseDto;
 import com.makingdevs.springdev.web.model.CourseRequest;
 
 import java.util.List;
-import java.util.Optional;
 
 public interface CourseService {
 
   List<CourseDto> findAllCourses();
 
-  Optional<Course> findCourseById(Long id);
+  Course findCourseById(Long id);
 
   CourseDto saveCourse(CourseRequest courseRequest);
 

@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/v1/departments")
@@ -38,8 +37,8 @@ public class DepartmentsController {
   @GetMapping("/{id}")
   @ResponseBody
   public DepartmentDto findDepartmentById(@PathVariable("id") Long id) {
-    Optional<Department> course = departmentService.findDepartmentById(id);
-    return course.map(DepartmentMapper::toDto).orElse(null);
+    Department department = departmentService.findDepartmentById(id);
+    return DepartmentMapper.toDto(department);
   }
 
   @PostMapping

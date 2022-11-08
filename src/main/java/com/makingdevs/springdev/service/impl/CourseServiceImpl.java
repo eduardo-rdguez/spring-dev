@@ -4,6 +4,7 @@ import com.makingdevs.springdev.domain.courses.entity.Course;
 import com.makingdevs.springdev.domain.courses.entity.Instructor;
 import com.makingdevs.springdev.domain.courses.repository.CourseRepository;
 import com.makingdevs.springdev.domain.departments.entity.Department;
+import com.makingdevs.springdev.exception.NotFoundException;
 import com.makingdevs.springdev.service.CourseService;
 import com.makingdevs.springdev.service.DepartmentService;
 import com.makingdevs.springdev.service.InstructorService;
@@ -42,8 +43,14 @@ public class CourseServiceImpl implements CourseService {
   }
 
   @Transactional(readOnly = true)
-  public Optional<Course> findCourseById(Long id) {
-    return courseRepository.findById(id);
+  public Course findCourseById(Long id) {
+    Optional<Course> course = courseRepository.findById(id);
+
+    if (course.isPresent()) {
+      return course.get();
+    }
+
+    throw new NotFoundException(Course.class);
   }
 
   @Transactional(readOnly = true)
@@ -59,19 +66,19 @@ public class CourseServiceImpl implements CourseService {
     Long departmentId = courseRequest.getDepartmentId();
 
     Optional<Course> courseFound = findCourseByTitle(courseTitle);
-    Optional<Instructor> instructorFound = instructorService.findInstructorById(instructorId);
-    Optional<Department> departmentFound = departmentService.findDepartmentById(departmentId);
+    Instructor instructorFound = instructorService.findInstructorById(instructorId);
+    Department departmentFound = departmentService.findDepartmentById(departmentId);
 
-    if (!courseFound.isPresent() && instructorFound.isPresent() && departmentFound.isPresent()) {
+    if (!courseFound.isPresent()) {
       Course course = CourseMapper.toEntity(
         courseTitle,
-        instructorFound.get(),
-        departmentFound.get()
+        instructorFound,
+        departmentFound
       );
       return CourseMapper.toDetailedDto(saveCourse(course));
     }
 
-    return null;
+    return CourseMapper.toDetailedDto(courseFound.get());
   }
 
   @Override

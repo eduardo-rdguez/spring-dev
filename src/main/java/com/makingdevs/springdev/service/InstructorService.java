@@ -5,13 +5,12 @@ import com.makingdevs.springdev.service.dto.InstructorDto;
 import com.makingdevs.springdev.web.model.InstructorRequest;
 
 import java.util.List;
-import java.util.Optional;
 
 public interface InstructorService {
 
   List<InstructorDto> findAllInstructors();
 
-  Optional<Instructor> findInstructorById(Long id);
+  Instructor findInstructorById(Long id);
 
   InstructorDto saveInstructor(InstructorRequest instructorRequest);
 

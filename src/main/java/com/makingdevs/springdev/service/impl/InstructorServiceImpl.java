@@ -3,6 +3,7 @@ package com.makingdevs.springdev.service.impl;
 import com.makingdevs.springdev.domain.courses.entity.Instructor;
 import com.makingdevs.springdev.domain.courses.entity.InstructorDetail;
 import com.makingdevs.springdev.domain.courses.repository.InstructorRepository;
+import com.makingdevs.springdev.exception.NotFoundException;
 import com.makingdevs.springdev.service.InstructorDetailService;
 import com.makingdevs.springdev.service.InstructorService;
 import com.makingdevs.springdev.service.dto.InstructorDto;
@@ -38,8 +39,14 @@ public class InstructorServiceImpl implements InstructorService {
 
   @Override
   @Transactional(readOnly = true)
-  public Optional<Instructor> findInstructorById(Long id) {
-    return instructorRepository.findById(id);
+  public Instructor findInstructorById(Long id) {
+    Optional<Instructor> instructor = instructorRepository.findById(id);
+
+    if (instructor.isPresent()) {
+      return instructor.get();
+    }
+
+    throw new NotFoundException(Instructor.class);
   }
 
   @Override

@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/v1/instructors")
@@ -38,8 +37,8 @@ public class InstructorsController {
   public InstructorDto findInstructorById(
     @PathVariable(name = "id") Long id
   ) {
-    Optional<Instructor> instructor = instructorService.findInstructorById(id);
-    return instructor.map(InstructorMapper::toDetailedDto).orElse(null);
+    Instructor instructor = instructorService.findInstructorById(id);
+    return InstructorMapper.toDetailedDto(instructor);
   }
 
   @PostMapping

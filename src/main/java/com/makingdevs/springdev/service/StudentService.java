@@ -5,7 +5,6 @@ import com.makingdevs.springdev.service.dto.StudentDto;
 import com.makingdevs.springdev.web.model.StudentRequest;
 
 import java.util.List;
-import java.util.Optional;
 
 public interface StudentService {
 
@@ -13,6 +12,6 @@ public interface StudentService {
 
   StudentDto saveStudent(StudentRequest studentRequest);
 
-  Optional<Student> findStudentById(Long id);
+  Student findStudentById(Long id);
 
 }

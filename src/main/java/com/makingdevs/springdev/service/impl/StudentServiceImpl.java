@@ -2,6 +2,7 @@ package com.makingdevs.springdev.service.impl;
 
 import com.makingdevs.springdev.domain.courses.entity.Student;
 import com.makingdevs.springdev.domain.courses.repository.StudentRepository;
+import com.makingdevs.springdev.exception.NotFoundException;
 import com.makingdevs.springdev.service.StudentService;
 import com.makingdevs.springdev.service.dto.StudentDto;
 import com.makingdevs.springdev.service.mapper.StudentMapper;
@@ -31,8 +32,14 @@ public class StudentServiceImpl implements StudentService {
 
   @Override
   @Transactional(readOnly = true)
-  public Optional<Student> findStudentById(Long id) {
-    return studentRepository.findById(id);
+  public Student findStudentById(Long id) {
+    Optional<Student> student = studentRepository.findById(id);
+
+    if (student.isPresent()) {
+      return student.get();
+    }
+
+    throw new NotFoundException(Student.class);
   }
 
   @Override

@@ -11,8 +11,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.Optional;
-
 @Service
 public class CourseStudentServiceImpl implements CourseStudentService {
 
@@ -30,16 +28,10 @@ public class CourseStudentServiceImpl implements CourseStudentService {
   @Override
   @Transactional(propagation = Propagation.REQUIRES_NEW)
   public CourseDto assignStudentToCourse(Long courseId, Long studentId) {
-    Optional<Course> courseFound = courseService.findCourseById(courseId);
-    Optional<Student> studentFound = studentService.findStudentById(studentId);
+    Course courseFound = courseService.findCourseById(courseId);
+    Student studentFound = studentService.findStudentById(studentId);
 
-    if (courseFound.isPresent() && studentFound.isPresent()) {
-      Course course = courseFound.get();
-      course.getStudents().add(studentFound.get());
-
-      return CourseMapper.toDetailedDto(courseService.saveCourse(course));
-    }
-
-    return null;
+    courseFound.getStudents().add(studentFound);
+    return CourseMapper.toDetailedDto(courseService.saveCourse(courseFound));
   }
 }
