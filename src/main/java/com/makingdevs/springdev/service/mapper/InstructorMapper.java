@@ -45,6 +45,8 @@ public class InstructorMapper {
       .id(instructor.getId())
       .firstName(instructor.getFirstName())
       .lastName(instructor.getLastName())
+      .birthdate(instructor.getInstructorDetail().getBirthdate())
+      .bloodType(instructor.getInstructorDetail().getBloodType())
       .email(instructor.getEmail())
       .courses(courses)
       .build();
