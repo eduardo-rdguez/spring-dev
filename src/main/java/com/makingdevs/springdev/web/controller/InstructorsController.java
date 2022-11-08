@@ -19,11 +19,11 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/v1/instructors")
-public class InstructorController {
+public class InstructorsController {
 
   private final InstructorService instructorService;
 
-  public InstructorController(InstructorService instructorService) {
+  public InstructorsController(InstructorService instructorService) {
     this.instructorService = instructorService;
   }
 
