@@ -31,8 +31,8 @@ public class StudentServiceImpl implements StudentService {
 
   @Override
   @Transactional(readOnly = true)
-  public Optional<Student> findStudentById(Long studentId) {
-    return studentRepository.findById(studentId);
+  public Optional<Student> findStudentById(Long id) {
+    return studentRepository.findById(id);
   }
 
   @Override

@@ -13,6 +13,6 @@ public interface StudentService {
 
   StudentDto saveStudent(StudentRequest studentRequest);
 
-  Optional<Student> findStudentById(Long studentId);
+  Optional<Student> findStudentById(Long id);
 
 }
