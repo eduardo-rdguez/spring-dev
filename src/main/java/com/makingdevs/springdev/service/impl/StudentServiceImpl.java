@@ -6,7 +6,7 @@ import com.makingdevs.springdev.exception.NotFoundException;
 import com.makingdevs.springdev.service.StudentService;
 import com.makingdevs.springdev.service.dto.StudentDto;
 import com.makingdevs.springdev.service.mapper.StudentMapper;
-import com.makingdevs.springdev.web.model.StudentRequest;
+import com.makingdevs.springdev.web.model.request.StudentRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;

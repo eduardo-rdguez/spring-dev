@@ -4,7 +4,7 @@ import com.makingdevs.springdev.domain.courses.entity.Student;
 import com.makingdevs.springdev.service.StudentService;
 import com.makingdevs.springdev.service.dto.StudentDto;
 import com.makingdevs.springdev.service.mapper.StudentMapper;
-import com.makingdevs.springdev.web.model.StudentRequest;
+import com.makingdevs.springdev.web.model.request.StudentRequest;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;

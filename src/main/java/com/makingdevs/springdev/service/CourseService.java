@@ -2,7 +2,7 @@ package com.makingdevs.springdev.service;
 
 import com.makingdevs.springdev.domain.courses.entity.Course;
 import com.makingdevs.springdev.service.dto.CourseDto;
-import com.makingdevs.springdev.web.model.CourseRequest;
+import com.makingdevs.springdev.web.model.request.CourseRequest;
 
 import java.util.List;
 

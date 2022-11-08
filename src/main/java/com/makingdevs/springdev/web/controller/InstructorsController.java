@@ -4,7 +4,7 @@ import com.makingdevs.springdev.domain.courses.entity.Instructor;
 import com.makingdevs.springdev.service.InstructorService;
 import com.makingdevs.springdev.service.dto.InstructorDto;
 import com.makingdevs.springdev.service.mapper.InstructorMapper;
-import com.makingdevs.springdev.web.model.InstructorRequest;
+import com.makingdevs.springdev.web.model.request.InstructorRequest;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;

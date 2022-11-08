@@ -4,7 +4,7 @@ import com.makingdevs.springdev.domain.courses.entity.InstructorDetail;
 import com.makingdevs.springdev.domain.courses.repository.InstructorDetailRepository;
 import com.makingdevs.springdev.service.InstructorDetailService;
 import com.makingdevs.springdev.service.mapper.InstructorDetailMapper;
-import com.makingdevs.springdev.web.model.InstructorRequest;
+import com.makingdevs.springdev.web.model.request.InstructorRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;

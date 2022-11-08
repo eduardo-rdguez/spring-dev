@@ -4,7 +4,7 @@ import com.makingdevs.springdev.domain.departments.entity.Department;
 import com.makingdevs.springdev.service.DepartmentService;
 import com.makingdevs.springdev.service.dto.DepartmentDto;
 import com.makingdevs.springdev.service.mapper.DepartmentMapper;
-import com.makingdevs.springdev.web.model.DepartmentRequest;
+import com.makingdevs.springdev.web.model.request.DepartmentRequest;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;

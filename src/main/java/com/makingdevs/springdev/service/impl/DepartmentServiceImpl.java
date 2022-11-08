@@ -6,7 +6,7 @@ import com.makingdevs.springdev.exception.NotFoundException;
 import com.makingdevs.springdev.service.DepartmentService;
 import com.makingdevs.springdev.service.dto.DepartmentDto;
 import com.makingdevs.springdev.service.mapper.DepartmentMapper;
-import com.makingdevs.springdev.web.model.DepartmentRequest;
+import com.makingdevs.springdev.web.model.request.DepartmentRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 

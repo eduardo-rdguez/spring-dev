@@ -3,7 +3,7 @@ package com.makingdevs.springdev.service.mapper;
 import com.makingdevs.springdev.domain.courses.entity.Student;
 import com.makingdevs.springdev.service.dto.CourseDto;
 import com.makingdevs.springdev.service.dto.StudentDto;
-import com.makingdevs.springdev.web.model.StudentRequest;
+import com.makingdevs.springdev.web.model.request.StudentRequest;
 import org.springframework.stereotype.Component;
 
 import java.util.List;

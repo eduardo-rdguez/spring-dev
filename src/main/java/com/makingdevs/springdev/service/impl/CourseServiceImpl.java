@@ -10,7 +10,7 @@ import com.makingdevs.springdev.service.DepartmentService;
 import com.makingdevs.springdev.service.InstructorService;
 import com.makingdevs.springdev.service.dto.CourseDto;
 import com.makingdevs.springdev.service.mapper.CourseMapper;
-import com.makingdevs.springdev.web.model.CourseRequest;
+import com.makingdevs.springdev.web.model.request.CourseRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;

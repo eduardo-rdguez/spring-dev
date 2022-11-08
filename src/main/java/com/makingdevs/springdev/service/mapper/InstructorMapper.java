@@ -4,7 +4,7 @@ import com.makingdevs.springdev.domain.courses.entity.Instructor;
 import com.makingdevs.springdev.domain.courses.entity.InstructorDetail;
 import com.makingdevs.springdev.service.dto.CourseDto;
 import com.makingdevs.springdev.service.dto.InstructorDto;
-import com.makingdevs.springdev.web.model.InstructorRequest;
+import com.makingdevs.springdev.web.model.request.InstructorRequest;
 import org.springframework.stereotype.Component;
 
 import java.util.List;

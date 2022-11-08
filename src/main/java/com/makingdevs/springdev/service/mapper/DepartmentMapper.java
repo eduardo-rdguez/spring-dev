@@ -2,7 +2,7 @@ package com.makingdevs.springdev.service.mapper;
 
 import com.makingdevs.springdev.domain.departments.entity.Department;
 import com.makingdevs.springdev.service.dto.DepartmentDto;
-import com.makingdevs.springdev.web.model.DepartmentRequest;
+import com.makingdevs.springdev.web.model.request.DepartmentRequest;
 import org.springframework.stereotype.Component;
 
 import java.util.List;

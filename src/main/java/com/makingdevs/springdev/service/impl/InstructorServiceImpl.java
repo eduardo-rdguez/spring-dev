@@ -8,7 +8,7 @@ import com.makingdevs.springdev.service.InstructorDetailService;
 import com.makingdevs.springdev.service.InstructorService;
 import com.makingdevs.springdev.service.dto.InstructorDto;
 import com.makingdevs.springdev.service.mapper.InstructorMapper;
-import com.makingdevs.springdev.web.model.InstructorRequest;
+import com.makingdevs.springdev.web.model.request.InstructorRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
