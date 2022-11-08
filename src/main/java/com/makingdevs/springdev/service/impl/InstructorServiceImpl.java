@@ -44,11 +44,11 @@ public class InstructorServiceImpl implements InstructorService {
 
   @Override
   @Transactional(propagation = Propagation.REQUIRES_NEW)
-  public Instructor saveInstructor(InstructorRequest instructorRequest) {
+  public InstructorDto saveInstructor(InstructorRequest instructorRequest) {
     InstructorDetail instructorDetail =
       instructorDetailService.saveInstructorDetail(instructorRequest);
     Instructor instructor = InstructorMapper.toEntity(instructorRequest, instructorDetail);
 
-    return instructorRepository.save(instructor);
+    return InstructorMapper.toDetailedDto(instructorRepository.save(instructor));
   }
 }

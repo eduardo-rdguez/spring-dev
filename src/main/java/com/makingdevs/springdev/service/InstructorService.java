@@ -13,6 +13,6 @@ public interface InstructorService {
 
   Optional<Instructor> findInstructorById(Long id);
 
-  Instructor saveInstructor(InstructorRequest instructorRequest);
+  InstructorDto saveInstructor(InstructorRequest instructorRequest);
 
 }

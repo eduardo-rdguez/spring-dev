@@ -44,7 +44,7 @@ public class InstructorController {
 
   @PostMapping
   @ResponseBody
-  public Instructor saveInstructor(@Valid @RequestBody InstructorRequest instructorRequest) {
+  public InstructorDto saveInstructor(@Valid @RequestBody InstructorRequest instructorRequest) {
     return instructorService.saveInstructor(instructorRequest);
   }
 }
