@@ -9,6 +9,7 @@ import lombok.Data;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.Date;
 
 @Data
@@ -16,14 +17,17 @@ public class InstructorRequest {
 
   @JsonProperty("first_name")
   @NotBlank
+  @Size(max = 45)
   private String firstName;
 
   @JsonProperty("last_name")
   @NotBlank
+  @Size(max = 45)
   private String lastName;
 
   @JsonProperty("email")
   @NotBlank
+  @Size(max = 45)
   @Email(regexp = Constants.EMAIL_REGEX)
   private String email;
 
@@ -33,6 +37,7 @@ public class InstructorRequest {
   private Date birthdate;
 
   @JsonProperty("blood_type")
+  @Size(max = 1)
   private BloodType bloodType;
 
 }
