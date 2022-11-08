@@ -3,6 +3,7 @@ package com.makingdevs.springdev.service.impl;
 import com.makingdevs.springdev.domain.entity.Student;
 import com.makingdevs.springdev.domain.repository.StudentRepository;
 import com.makingdevs.springdev.service.StudentService;
+import com.makingdevs.springdev.service.dto.StudentDto;
 import com.makingdevs.springdev.service.mapper.StudentMapper;
 import com.makingdevs.springdev.web.model.StudentRequest;
 import org.springframework.stereotype.Service;
@@ -23,8 +24,15 @@ public class StudentServiceImpl implements StudentService {
 
   @Override
   @Transactional(readOnly = true)
-  public List<Student> findAllStudents() {
-    return studentRepository.findAll();
+  public List<StudentDto> findAllStudents() {
+    List<Student> students = studentRepository.findAll();
+    return StudentMapper.toDtoList(students);
+  }
+
+  @Override
+  @Transactional(readOnly = true)
+  public Optional<Student> findStudentById(Long studentId) {
+    return studentRepository.findById(studentId);
   }
 
   @Override
