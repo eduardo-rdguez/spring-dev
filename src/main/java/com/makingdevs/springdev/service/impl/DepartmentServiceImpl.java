@@ -7,6 +7,7 @@ import com.makingdevs.springdev.service.DepartmentService;
 import com.makingdevs.springdev.service.dto.DepartmentDto;
 import com.makingdevs.springdev.service.mapper.DepartmentMapper;
 import com.makingdevs.springdev.web.model.request.DepartmentRequest;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -16,9 +17,14 @@ import java.util.Optional;
 @Service
 public class DepartmentServiceImpl implements DepartmentService {
 
-  private final DepartmentRepository departmentRepository;
+  private DepartmentRepository departmentRepository;
 
-  public DepartmentServiceImpl(DepartmentRepository departmentRepository) {
+  public DepartmentRepository getDepartmentRepository() {
+    return departmentRepository;
+  }
+
+  @Autowired
+  public void setDepartmentRepository(DepartmentRepository departmentRepository) {
     this.departmentRepository = departmentRepository;
   }
 
