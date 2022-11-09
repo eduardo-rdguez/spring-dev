@@ -7,6 +7,7 @@ import com.makingdevs.springdev.service.CourseStudentService;
 import com.makingdevs.springdev.service.StudentService;
 import com.makingdevs.springdev.service.dto.CourseDto;
 import com.makingdevs.springdev.service.mapper.CourseMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
@@ -14,16 +15,10 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 public class CourseStudentServiceImpl implements CourseStudentService {
 
-  private final CourseService courseService;
-  private final StudentService studentService;
-
-  public CourseStudentServiceImpl(
-    CourseService courseService,
-    StudentService studentService
-  ) {
-    this.courseService = courseService;
-    this.studentService = studentService;
-  }
+  @Autowired
+  private CourseService courseService;
+  @Autowired
+  private StudentService studentService;
 
   @Override
   @Transactional(propagation = Propagation.REQUIRES_NEW)
