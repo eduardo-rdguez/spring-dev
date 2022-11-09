@@ -4,14 +4,18 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import com.makingdevs.springdev.constant.Constants;
 import com.makingdevs.springdev.util.enums.BloodType;
 import lombok.Builder;
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
 @Builder
-@Data
+@Getter
+@Setter
+@ToString
 public class InstructorDto implements Serializable {
 
   private Long id;

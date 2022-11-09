@@ -32,19 +32,16 @@ public class CoursesController {
   }
 
   @GetMapping
-  @ResponseBody
   public List<CourseDto> findAllCourses() {
     return courseService.findAllCourses();
   }
 
   @GetMapping("/{id}")
-  @ResponseBody
   public CourseDto findCourseById(@PathVariable("id") Long id) {
     return CourseMapper.toDetailedDto(courseService.findCourseById(id));
   }
 
   @PostMapping
-  @ResponseBody
   public CourseDto saveCourse(@Valid @RequestBody CourseRequest courseRequest) {
     return courseService.saveCourse(courseRequest);
   }

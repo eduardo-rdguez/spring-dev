@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
@@ -27,20 +26,17 @@ public class StudentsController {
   }
 
   @GetMapping
-  @ResponseBody
   public List<StudentDto> findAllStudents() {
     return studentService.findAllStudents();
   }
 
   @GetMapping("/{id}")
-  @ResponseBody
   public StudentDto findStudentById(@PathVariable("id") Long id) {
     Student student = studentService.findStudentById(id);
     return StudentMapper.toDetailedDto(student);
   }
 
   @PostMapping
-  @ResponseBody
   public StudentDto saveStudent(@Valid @RequestBody StudentRequest studentRequest) {
     return studentService.saveStudent(studentRequest);
   }

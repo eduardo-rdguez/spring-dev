@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
@@ -29,20 +28,17 @@ public class DepartmentsController {
   }
 
   @GetMapping
-  @ResponseBody
   public List<DepartmentDto> findAllDepartments() {
     return departmentService.findAllDepartments();
   }
 
   @GetMapping("/{id}")
-  @ResponseBody
   public DepartmentDto findDepartmentById(@PathVariable("id") Long id) {
     Department department = departmentService.findDepartmentById(id);
     return DepartmentMapper.toDto(department);
   }
 
   @PostMapping
-  @ResponseBody
   public DepartmentDto saveDepartment(@Valid @RequestBody DepartmentRequest departmentRequest) {
     return departmentService.saveDepartment(departmentRequest);
   }
