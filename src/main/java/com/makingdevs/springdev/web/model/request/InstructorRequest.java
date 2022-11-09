@@ -36,7 +36,7 @@ public class InstructorRequest {
 
   @JsonProperty("birthdate")
   @NotNull
-  @JsonFormat(pattern = "yyyy-MM-dd")
+  @JsonFormat(pattern = Constants.ISO_DATE_FORMAT)
   private Date birthdate;
 
   @JsonProperty("blood_type")
