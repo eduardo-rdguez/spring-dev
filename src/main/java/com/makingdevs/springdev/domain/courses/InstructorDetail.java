@@ -41,4 +41,5 @@ public class InstructorDetail {
     this.birthdate = birthdate;
     this.bloodType = bloodType;
   }
+
 }

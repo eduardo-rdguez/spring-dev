@@ -7,6 +7,8 @@ import com.makingdevs.springdev.dto.CourseDto;
 import com.makingdevs.springdev.dto.InstructorDto;
 import com.makingdevs.springdev.dto.PageDto;
 import com.makingdevs.springdev.dto.StudentDto;
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Component;
 import org.springframework.util.ObjectUtils;
@@ -16,6 +18,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Component
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class CourseMapper {
 
   public static Course toEntity(String title, Instructor instructor, Department department) {
@@ -55,4 +58,5 @@ public class CourseMapper {
       page.getTotalElements()
     );
   }
+
 }

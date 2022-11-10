@@ -50,4 +50,5 @@ public class DepartmentsController {
   public DepartmentDto saveDepartment(@Valid @RequestBody DepartmentRequest departmentRequest) {
     return departmentService.saveDepartment(departmentRequest);
   }
+
 }

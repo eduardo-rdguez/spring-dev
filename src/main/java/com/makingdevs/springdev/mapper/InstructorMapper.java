@@ -6,6 +6,8 @@ import com.makingdevs.springdev.dto.CourseDto;
 import com.makingdevs.springdev.dto.InstructorDto;
 import com.makingdevs.springdev.dto.PageDto;
 import com.makingdevs.springdev.model.request.InstructorRequest;
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Component;
 
@@ -13,6 +15,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Component
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class InstructorMapper {
 
   public static Instructor toEntity(
@@ -65,4 +68,5 @@ public class InstructorMapper {
       page.getTotalElements()
     );
   }
+
 }

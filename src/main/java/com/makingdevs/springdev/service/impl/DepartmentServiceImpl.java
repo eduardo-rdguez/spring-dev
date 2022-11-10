@@ -65,4 +65,5 @@ public class DepartmentServiceImpl implements DepartmentService {
 
     return DepartmentMapper.toDto(departmentFound.get());
   }
+
 }

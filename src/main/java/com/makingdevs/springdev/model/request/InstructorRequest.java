@@ -18,19 +18,19 @@ public class InstructorRequest {
 
   @JsonProperty("first_name")
   @NotBlank
-  @Size(max = 45)
+  @Size(max = Constants.FIFTY)
   @Pattern(regexp = Constants.LETTERS_REGEX)
   private String firstName;
 
   @JsonProperty("last_name")
   @NotBlank
-  @Size(max = 45)
+  @Size(max = Constants.FIFTY)
   @Pattern(regexp = Constants.LETTERS_REGEX)
   private String lastName;
 
   @JsonProperty("email")
   @NotBlank
-  @Size(max = 45)
+  @Size(max = Constants.FIFTY)
   @Email(regexp = Constants.EMAIL_REGEX)
   private String email;
 

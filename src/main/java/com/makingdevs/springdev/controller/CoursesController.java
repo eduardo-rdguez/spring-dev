@@ -63,4 +63,5 @@ public class CoursesController {
   ) {
     return courseStudentService.assignStudentToCourse(courseId, studentId);
   }
+
 }

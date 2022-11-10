@@ -29,4 +29,5 @@ public class CourseStudentServiceImpl implements CourseStudentService {
     courseFound.getStudents().add(studentFound);
     return CourseMapper.toDetailedDto(courseService.saveCourse(courseFound));
   }
+
 }

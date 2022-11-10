@@ -50,4 +50,5 @@ public class InstructorsController {
   public InstructorDto saveInstructor(@Valid @RequestBody InstructorRequest instructorRequest) {
     return instructorService.saveInstructor(instructorRequest);
   }
+
 }

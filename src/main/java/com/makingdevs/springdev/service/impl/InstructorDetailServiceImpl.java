@@ -23,4 +23,5 @@ public class InstructorDetailServiceImpl implements InstructorDetailService {
     InstructorDetail instructorDetail = InstructorDetailMapper.toEntity(instructorRequest);
     return instructorDetailRepository.save(instructorDetail);
   }
+
 }

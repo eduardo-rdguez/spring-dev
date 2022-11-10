@@ -6,7 +6,7 @@ public enum BloodType {
   O("O+"),
   AB("AB+");
 
-  final String description;
+  private final String description;
 
   BloodType(String description) {
     this.description = description;

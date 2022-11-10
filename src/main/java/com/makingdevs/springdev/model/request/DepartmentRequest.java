@@ -13,7 +13,7 @@ public class DepartmentRequest {
 
   @JsonProperty("name")
   @NotBlank
-  @Size(max = 45)
+  @Size(max = Constants.FIFTY)
   @Pattern(regexp = Constants.LETTERS_REGEX)
   private String name;
 

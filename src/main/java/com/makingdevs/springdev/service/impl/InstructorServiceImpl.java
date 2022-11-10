@@ -60,4 +60,5 @@ public class InstructorServiceImpl implements InstructorService {
 
     return InstructorMapper.toDetailedDto(instructorRepository.save(instructor));
   }
+
 }
