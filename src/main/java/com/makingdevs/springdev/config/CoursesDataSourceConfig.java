@@ -20,7 +20,7 @@ import java.util.Objects;
 @Configuration
 @EnableTransactionManagement
 @EnableJpaRepositories(
-  basePackages = "com.makingdevs.springdev.domain.courses.repository",
+  basePackages = "com.makingdevs.springdev.repository.courses",
   entityManagerFactoryRef = "coursesEntityManagerFactory",
   transactionManagerRef = "coursesTransactionManager"
 )
@@ -40,7 +40,7 @@ public class CoursesDataSourceConfig {
   ) {
     return builder
       .dataSource(coursesDataSource())
-      .packages("com.makingdevs.springdev.domain.courses.entity")
+      .packages("com.makingdevs.springdev.domain.courses")
       .build();
   }
 

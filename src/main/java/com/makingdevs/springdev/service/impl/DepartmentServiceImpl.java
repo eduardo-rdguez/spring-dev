@@ -1,13 +1,13 @@
 package com.makingdevs.springdev.service.impl;
 
-import com.makingdevs.springdev.domain.departments.entity.Department;
-import com.makingdevs.springdev.domain.departments.repository.DepartmentRepository;
+import com.makingdevs.springdev.domain.departments.Department;
+import com.makingdevs.springdev.dto.DepartmentDto;
+import com.makingdevs.springdev.dto.PageDto;
 import com.makingdevs.springdev.exception.EntityNotFoundException;
+import com.makingdevs.springdev.mapper.DepartmentMapper;
+import com.makingdevs.springdev.model.request.DepartmentRequest;
+import com.makingdevs.springdev.repository.departments.DepartmentRepository;
 import com.makingdevs.springdev.service.DepartmentService;
-import com.makingdevs.springdev.service.dto.DepartmentDto;
-import com.makingdevs.springdev.service.dto.PageDto;
-import com.makingdevs.springdev.service.mapper.DepartmentMapper;
-import com.makingdevs.springdev.web.model.request.DepartmentRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

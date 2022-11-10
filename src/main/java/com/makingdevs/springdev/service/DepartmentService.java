@@ -1,9 +1,9 @@
 package com.makingdevs.springdev.service;
 
-import com.makingdevs.springdev.domain.departments.entity.Department;
-import com.makingdevs.springdev.service.dto.DepartmentDto;
-import com.makingdevs.springdev.service.dto.PageDto;
-import com.makingdevs.springdev.web.model.request.DepartmentRequest;
+import com.makingdevs.springdev.domain.departments.Department;
+import com.makingdevs.springdev.dto.DepartmentDto;
+import com.makingdevs.springdev.dto.PageDto;
+import com.makingdevs.springdev.model.request.DepartmentRequest;
 import org.springframework.data.domain.Pageable;
 
 import java.util.Optional;

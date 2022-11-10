@@ -1,6 +1,6 @@
 package com.makingdevs.springdev.service;
 
-import com.makingdevs.springdev.service.dto.CourseDto;
+import com.makingdevs.springdev.dto.CourseDto;
 
 public interface CourseStudentService {
 

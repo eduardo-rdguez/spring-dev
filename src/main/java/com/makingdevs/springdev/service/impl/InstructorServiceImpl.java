@@ -1,15 +1,15 @@
 package com.makingdevs.springdev.service.impl;
 
-import com.makingdevs.springdev.domain.courses.entity.Instructor;
-import com.makingdevs.springdev.domain.courses.entity.InstructorDetail;
-import com.makingdevs.springdev.domain.courses.repository.InstructorRepository;
+import com.makingdevs.springdev.domain.courses.Instructor;
+import com.makingdevs.springdev.domain.courses.InstructorDetail;
+import com.makingdevs.springdev.dto.InstructorDto;
+import com.makingdevs.springdev.dto.PageDto;
 import com.makingdevs.springdev.exception.EntityNotFoundException;
+import com.makingdevs.springdev.mapper.InstructorMapper;
+import com.makingdevs.springdev.model.request.InstructorRequest;
+import com.makingdevs.springdev.repository.courses.InstructorRepository;
 import com.makingdevs.springdev.service.InstructorDetailService;
 import com.makingdevs.springdev.service.InstructorService;
-import com.makingdevs.springdev.service.dto.InstructorDto;
-import com.makingdevs.springdev.service.dto.PageDto;
-import com.makingdevs.springdev.service.mapper.InstructorMapper;
-import com.makingdevs.springdev.web.model.request.InstructorRequest;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
