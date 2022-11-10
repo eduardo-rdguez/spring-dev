@@ -7,7 +7,9 @@ import com.makingdevs.springdev.service.dto.StudentDto;
 import com.makingdevs.springdev.web.model.request.StudentRequest;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Component;
+import org.springframework.util.ObjectUtils;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -47,7 +49,10 @@ public class StudentMapper {
   }
 
   public static List<StudentDto> toDtoList(List<Student> students) {
-    return students.stream().map(StudentMapper::toDto).collect(Collectors.toList());
+    if (!ObjectUtils.isEmpty(students)) {
+      return students.stream().map(StudentMapper::toDto).collect(Collectors.toList());
+    }
+    return Collections.emptyList();
   }
 
   public static PageDto<StudentDto> toPage(Page<Student> page) {
