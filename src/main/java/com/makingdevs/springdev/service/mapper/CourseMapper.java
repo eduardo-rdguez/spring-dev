@@ -5,7 +5,9 @@ import com.makingdevs.springdev.domain.courses.entity.Instructor;
 import com.makingdevs.springdev.domain.departments.entity.Department;
 import com.makingdevs.springdev.service.dto.CourseDto;
 import com.makingdevs.springdev.service.dto.InstructorDto;
+import com.makingdevs.springdev.service.dto.PageDto;
 import com.makingdevs.springdev.service.dto.StudentDto;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Component;
 import org.springframework.util.ObjectUtils;
 
@@ -44,5 +46,14 @@ public class CourseMapper {
       return courses.stream().map(CourseMapper::toDto).collect(Collectors.toList());
     }
     return Collections.emptyList();
+  }
+
+  public static PageDto<CourseDto> toPage(Page<Course> page) {
+    return new PageDto<>(
+      toDtoList(page.getContent()),
+      page.getTotalPages(),
+      page.getTotalElements(),
+      page.getNumber()
+    );
   }
 }

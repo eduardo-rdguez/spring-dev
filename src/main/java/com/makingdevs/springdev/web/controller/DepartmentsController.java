@@ -3,10 +3,13 @@ package com.makingdevs.springdev.web.controller;
 import com.makingdevs.springdev.domain.departments.entity.Department;
 import com.makingdevs.springdev.service.DepartmentService;
 import com.makingdevs.springdev.service.dto.DepartmentDto;
+import com.makingdevs.springdev.service.dto.PageDto;
 import com.makingdevs.springdev.service.mapper.DepartmentMapper;
 import com.makingdevs.springdev.web.model.request.DepartmentRequest;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import org.springdoc.api.annotations.ParameterObject;
+import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,7 +18,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
-import java.util.List;
 
 @RestController
 @Tag(name = "Departments Controller")
@@ -32,8 +34,8 @@ public class DepartmentsController {
 
   @Operation(summary = "Get all departments")
   @GetMapping
-  public List<DepartmentDto> findAllDepartments() {
-    return departmentService.findAllDepartments();
+  public PageDto<DepartmentDto> findAllDepartments(@ParameterObject Pageable pageable) {
+    return departmentService.findAllDepartments(pageable);
   }
 
   @Operation(summary = "Get a department by id")

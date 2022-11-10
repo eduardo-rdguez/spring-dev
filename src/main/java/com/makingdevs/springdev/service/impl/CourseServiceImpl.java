@@ -9,13 +9,15 @@ import com.makingdevs.springdev.service.CourseService;
 import com.makingdevs.springdev.service.DepartmentService;
 import com.makingdevs.springdev.service.InstructorService;
 import com.makingdevs.springdev.service.dto.CourseDto;
+import com.makingdevs.springdev.service.dto.PageDto;
 import com.makingdevs.springdev.service.mapper.CourseMapper;
 import com.makingdevs.springdev.web.model.request.CourseRequest;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -37,9 +39,9 @@ public class CourseServiceImpl implements CourseService {
 
   @Override
   @Transactional(readOnly = true)
-  public List<CourseDto> findAllCourses() {
-    List<Course> courses = courseRepository.findAll();
-    return CourseMapper.toDtoList(courses);
+  public PageDto<CourseDto> findAllCourses(Pageable pageable) {
+    Page<Course> page = courseRepository.findAll(pageable);
+    return CourseMapper.toPage(page);
   }
 
   @Transactional(readOnly = true)

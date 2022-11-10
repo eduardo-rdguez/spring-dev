@@ -3,10 +3,13 @@ package com.makingdevs.springdev.web.controller;
 import com.makingdevs.springdev.domain.courses.entity.Instructor;
 import com.makingdevs.springdev.service.InstructorService;
 import com.makingdevs.springdev.service.dto.InstructorDto;
+import com.makingdevs.springdev.service.dto.PageDto;
 import com.makingdevs.springdev.service.mapper.InstructorMapper;
 import com.makingdevs.springdev.web.model.request.InstructorRequest;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import org.springdoc.api.annotations.ParameterObject;
+import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,7 +18,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
-import java.util.List;
 
 @RestController
 @Tag(name = "Instructors Controller")
@@ -30,8 +32,8 @@ public class InstructorsController {
 
   @Operation(summary = "Get all instructors")
   @GetMapping
-  public List<InstructorDto> findAllInstructors() {
-    return instructorService.findAllInstructors();
+  public PageDto<InstructorDto> findAllInstructors(@ParameterObject Pageable pageable) {
+    return instructorService.findAllInstructors(pageable);
   }
 
   @Operation(summary = "Find a instructor by id")

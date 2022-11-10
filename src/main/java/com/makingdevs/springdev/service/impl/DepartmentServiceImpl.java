@@ -5,13 +5,15 @@ import com.makingdevs.springdev.domain.departments.repository.DepartmentReposito
 import com.makingdevs.springdev.exception.EntityNotFoundException;
 import com.makingdevs.springdev.service.DepartmentService;
 import com.makingdevs.springdev.service.dto.DepartmentDto;
+import com.makingdevs.springdev.service.dto.PageDto;
 import com.makingdevs.springdev.service.mapper.DepartmentMapper;
 import com.makingdevs.springdev.web.model.request.DepartmentRequest;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -29,9 +31,9 @@ public class DepartmentServiceImpl implements DepartmentService {
   }
 
   @Override
-  public List<DepartmentDto> findAllDepartments() {
-    List<Department> departments = departmentRepository.findAll();
-    return DepartmentMapper.toDtoList(departments);
+  public PageDto<DepartmentDto> findAllDepartments(Pageable pageable) {
+    Page<Department> page = departmentRepository.findAll(pageable);
+    return DepartmentMapper.toPage(page);
   }
 
   @Override

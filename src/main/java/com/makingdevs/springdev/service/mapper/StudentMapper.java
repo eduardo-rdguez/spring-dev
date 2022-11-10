@@ -2,8 +2,10 @@ package com.makingdevs.springdev.service.mapper;
 
 import com.makingdevs.springdev.domain.courses.entity.Student;
 import com.makingdevs.springdev.service.dto.CourseDto;
+import com.makingdevs.springdev.service.dto.PageDto;
 import com.makingdevs.springdev.service.dto.StudentDto;
 import com.makingdevs.springdev.web.model.request.StudentRequest;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -48,4 +50,12 @@ public class StudentMapper {
     return students.stream().map(StudentMapper::toDto).collect(Collectors.toList());
   }
 
+  public static PageDto<StudentDto> toPage(Page<Student> page) {
+    return new PageDto<>(
+      toDtoList(page.getContent()),
+      page.getTotalPages(),
+      page.getTotalElements(),
+      page.getNumber()
+    );
+  }
 }

@@ -4,14 +4,16 @@ import com.makingdevs.springdev.domain.courses.entity.Student;
 import com.makingdevs.springdev.domain.courses.repository.StudentRepository;
 import com.makingdevs.springdev.exception.EntityNotFoundException;
 import com.makingdevs.springdev.service.StudentService;
+import com.makingdevs.springdev.service.dto.PageDto;
 import com.makingdevs.springdev.service.dto.StudentDto;
 import com.makingdevs.springdev.service.mapper.StudentMapper;
 import com.makingdevs.springdev.web.model.request.StudentRequest;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -25,9 +27,9 @@ public class StudentServiceImpl implements StudentService {
 
   @Override
   @Transactional(readOnly = true)
-  public List<StudentDto> findAllStudents() {
-    List<Student> students = studentRepository.findAll();
-    return StudentMapper.toDtoList(students);
+  public PageDto<StudentDto> findAllStudents(Pageable pageable) {
+    Page<Student> page = studentRepository.findAll(pageable);
+    return StudentMapper.toPage(page);
   }
 
   @Override

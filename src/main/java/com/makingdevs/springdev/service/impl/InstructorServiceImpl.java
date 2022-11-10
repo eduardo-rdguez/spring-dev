@@ -7,13 +7,15 @@ import com.makingdevs.springdev.exception.EntityNotFoundException;
 import com.makingdevs.springdev.service.InstructorDetailService;
 import com.makingdevs.springdev.service.InstructorService;
 import com.makingdevs.springdev.service.dto.InstructorDto;
+import com.makingdevs.springdev.service.dto.PageDto;
 import com.makingdevs.springdev.service.mapper.InstructorMapper;
 import com.makingdevs.springdev.web.model.request.InstructorRequest;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -32,9 +34,9 @@ public class InstructorServiceImpl implements InstructorService {
 
   @Override
   @Transactional(readOnly = true)
-  public List<InstructorDto> findAllInstructors() {
-    List<Instructor> instructors = instructorRepository.findAll();
-    return InstructorMapper.toDtoList(instructors);
+  public PageDto<InstructorDto> findAllInstructors(Pageable pageable) {
+    Page<Instructor> page = instructorRepository.findAll(pageable);
+    return InstructorMapper.toPage(page);
   }
 
   @Override

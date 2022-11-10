@@ -2,13 +2,13 @@ package com.makingdevs.springdev.service;
 
 import com.makingdevs.springdev.domain.courses.entity.Course;
 import com.makingdevs.springdev.service.dto.CourseDto;
+import com.makingdevs.springdev.service.dto.PageDto;
 import com.makingdevs.springdev.web.model.request.CourseRequest;
-
-import java.util.List;
+import org.springframework.data.domain.Pageable;
 
 public interface CourseService {
 
-  List<CourseDto> findAllCourses();
+  PageDto<CourseDto> findAllCourses(Pageable pageable);
 
   Course findCourseById(Long id);
 
