@@ -5,6 +5,7 @@ import com.makingdevs.springdev.web.model.response.ApiErrorResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
@@ -12,6 +13,7 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 public class RestHandlerException extends ResponseEntityExceptionHandler {
 
   @ExceptionHandler(EntityNotFoundException.class)
+  @ResponseStatus(HttpStatus.NOT_FOUND)
   protected ResponseEntity<Object> handleEntityNotFound(EntityNotFoundException ex) {
     return buildResponseEntity(new ApiErrorResponse(HttpStatus.NOT_FOUND, ex));
   }
