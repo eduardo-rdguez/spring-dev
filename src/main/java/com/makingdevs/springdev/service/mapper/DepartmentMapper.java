@@ -36,8 +36,7 @@ public class DepartmentMapper {
     return new PageDto<>(
       toDtoList(page.getContent()),
       page.getTotalPages(),
-      page.getTotalElements(),
-      page.getNumber()
+      page.getTotalElements()
     );
   }
 

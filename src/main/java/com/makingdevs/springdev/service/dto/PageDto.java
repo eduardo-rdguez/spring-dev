@@ -15,13 +15,11 @@ public class PageDto<T> implements Serializable {
   private List<T> data;
   private int pages;
   private long total;
-  private int page;
 
-  public PageDto(List<T> data, int pages, long total, int page) {
+  public PageDto(List<T> data, int pages, long total) {
     this.data = data;
     this.pages = pages;
     this.total = total;
-    this.page = page;
   }
 
 }
