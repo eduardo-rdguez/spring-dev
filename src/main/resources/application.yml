@@ -1,0 +1,13 @@
+spring:
+  output:
+    ansi:
+      enabled: ALWAYS
+  profiles:
+    active: ${SPRING_ENV}
+springdoc:
+  api-docs:
+    path: /api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+server:
+  port: '8080'
