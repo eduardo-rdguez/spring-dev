@@ -2,9 +2,9 @@ spring:
   datasource:
     departments:
       username: root
-      jdbc-url: jdbc:mysql://localhost:3307/departments
+      jdbcUrl: jdbc:mysql://localhost:3307/departments
       password: pass
     courses:
-      jdbc-url: jdbc:mysql://localhost:3307/courses
+      jdbcUrl: jdbc:mysql://localhost:3307/courses
       username: root
       password: pass
