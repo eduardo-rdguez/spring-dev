@@ -3,7 +3,7 @@ package com.makingdevs.springdev.model.request;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.makingdevs.springdev.constant.Constants;
-import com.makingdevs.springdev.util.enums.BloodType;
+import com.makingdevs.springdev.model.enums.BloodType;
 import lombok.Data;
 
 import javax.validation.constraints.Email;

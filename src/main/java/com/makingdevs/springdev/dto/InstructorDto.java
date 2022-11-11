@@ -2,7 +2,7 @@ package com.makingdevs.springdev.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.makingdevs.springdev.constant.Constants;
-import com.makingdevs.springdev.util.enums.BloodType;
+import com.makingdevs.springdev.model.enums.BloodType;
 import lombok.Builder;
 import lombok.Getter;
 

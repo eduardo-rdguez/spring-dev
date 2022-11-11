@@ -1,4 +1,4 @@
-package com.makingdevs.springdev.util.enums;
+package com.makingdevs.springdev.model.enums;
 
 public enum BloodType {
   A("A+"),

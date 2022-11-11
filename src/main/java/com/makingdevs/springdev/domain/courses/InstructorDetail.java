@@ -1,6 +1,6 @@
 package com.makingdevs.springdev.domain.courses;
 
-import com.makingdevs.springdev.util.enums.BloodType;
+import com.makingdevs.springdev.model.enums.BloodType;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
