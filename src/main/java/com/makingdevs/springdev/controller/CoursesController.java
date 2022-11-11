@@ -8,6 +8,7 @@ import com.makingdevs.springdev.service.CourseService;
 import com.makingdevs.springdev.service.CourseStudentService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import lombok.RequiredArgsConstructor;
 import org.springdoc.api.annotations.ParameterObject;
 import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,18 +24,11 @@ import javax.validation.Valid;
 @RestController
 @Tag(name = "Courses Controller")
 @RequestMapping("/api/v1/courses")
+@RequiredArgsConstructor
 public class CoursesController {
 
   private final CourseService courseService;
   private final CourseStudentService courseStudentService;
-
-  public CoursesController(
-    CourseService courseService,
-    CourseStudentService courseStudentService
-  ) {
-    this.courseService = courseService;
-    this.courseStudentService = courseStudentService;
-  }
 
   @Operation(summary = "Get all courses")
   @GetMapping

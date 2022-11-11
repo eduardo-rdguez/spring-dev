@@ -8,6 +8,7 @@ import com.makingdevs.springdev.model.request.StudentRequest;
 import com.makingdevs.springdev.service.StudentService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import lombok.RequiredArgsConstructor;
 import org.springdoc.api.annotations.ParameterObject;
 import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,13 +23,10 @@ import javax.validation.Valid;
 @RestController
 @Tag(name = "Students Controller")
 @RequestMapping("/api/v1/students")
+@RequiredArgsConstructor
 public class StudentsController {
 
   private final StudentService studentService;
-
-  public StudentsController(StudentService studentService) {
-    this.studentService = studentService;
-  }
 
   @Operation(summary = "Get all students")
   @GetMapping

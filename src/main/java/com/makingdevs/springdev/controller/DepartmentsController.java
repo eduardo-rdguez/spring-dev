@@ -8,6 +8,7 @@ import com.makingdevs.springdev.model.request.DepartmentRequest;
 import com.makingdevs.springdev.service.DepartmentService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import lombok.RequiredArgsConstructor;
 import org.springdoc.api.annotations.ParameterObject;
 import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,15 +23,10 @@ import javax.validation.Valid;
 @RestController
 @Tag(name = "Departments Controller")
 @RequestMapping("/api/v1/departments")
+@RequiredArgsConstructor
 public class DepartmentsController {
 
   private final DepartmentService departmentService;
-
-  public DepartmentsController(
-    DepartmentService departmentService
-  ) {
-    this.departmentService = departmentService;
-  }
 
   @Operation(summary = "Get all departments")
   @GetMapping

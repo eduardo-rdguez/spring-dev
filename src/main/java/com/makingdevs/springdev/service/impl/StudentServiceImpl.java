@@ -8,6 +8,7 @@ import com.makingdevs.springdev.mapper.StudentMapper;
 import com.makingdevs.springdev.model.request.StudentRequest;
 import com.makingdevs.springdev.repository.courses.StudentRepository;
 import com.makingdevs.springdev.service.StudentService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -17,13 +18,10 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.Optional;
 
 @Service
+@RequiredArgsConstructor
 public class StudentServiceImpl implements StudentService {
 
   private final StudentRepository studentRepository;
-
-  public StudentServiceImpl(StudentRepository studentRepository) {
-    this.studentRepository = studentRepository;
-  }
 
   @Override
   @Transactional(readOnly = true)

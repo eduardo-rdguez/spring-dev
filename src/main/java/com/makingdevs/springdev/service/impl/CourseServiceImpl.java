@@ -12,6 +12,7 @@ import com.makingdevs.springdev.repository.courses.CourseRepository;
 import com.makingdevs.springdev.service.CourseService;
 import com.makingdevs.springdev.service.DepartmentService;
 import com.makingdevs.springdev.service.InstructorService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -21,21 +22,12 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.Optional;
 
 @Service
+@RequiredArgsConstructor
 public class CourseServiceImpl implements CourseService {
 
   private final CourseRepository courseRepository;
   private final InstructorService instructorService;
   private final DepartmentService departmentService;
-
-  public CourseServiceImpl(
-    CourseRepository courseRepository,
-    InstructorService instructorService,
-    DepartmentService departmentService
-  ) {
-    this.courseRepository = courseRepository;
-    this.instructorService = instructorService;
-    this.departmentService = departmentService;
-  }
 
   @Override
   @Transactional(readOnly = true)

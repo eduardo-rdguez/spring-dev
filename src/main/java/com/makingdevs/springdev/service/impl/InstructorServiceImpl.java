@@ -10,6 +10,7 @@ import com.makingdevs.springdev.model.request.InstructorRequest;
 import com.makingdevs.springdev.repository.courses.InstructorRepository;
 import com.makingdevs.springdev.service.InstructorDetailService;
 import com.makingdevs.springdev.service.InstructorService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -19,18 +20,11 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.Optional;
 
 @Service
+@RequiredArgsConstructor
 public class InstructorServiceImpl implements InstructorService {
 
   private final InstructorRepository instructorRepository;
   private final InstructorDetailService instructorDetailService;
-
-  public InstructorServiceImpl(
-    InstructorRepository instructorRepository,
-    InstructorDetailService instructorDetailService
-  ) {
-    this.instructorRepository = instructorRepository;
-    this.instructorDetailService = instructorDetailService;
-  }
 
   @Override
   @Transactional(readOnly = true)
