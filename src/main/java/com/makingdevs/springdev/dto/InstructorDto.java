@@ -1,6 +1,7 @@
 package com.makingdevs.springdev.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.makingdevs.springdev.constant.Constants;
 import com.makingdevs.springdev.model.enums.BloodType;
 import lombok.Builder;
@@ -12,6 +13,7 @@ import java.util.List;
 
 @Builder
 @Getter
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class InstructorDto implements Serializable {
 
   private Long id;
