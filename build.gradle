@@ -43,3 +43,7 @@ tasks.withType(Checkstyle) {
     html.required = true
   }
 }
+
+checkstyle {
+  sourceSets = [it.sourceSets.main]
+}
