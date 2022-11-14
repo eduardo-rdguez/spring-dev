@@ -11,6 +11,7 @@
 - Gradle `7.5.1`
 - Spring Boot `2.7.5`
 - OpenAPI `1.6.12`
+- Checkstyle `3.2.0`
 
 ## Run
 
@@ -18,6 +19,22 @@ Runs this project as a Spring Boot application:
 
 ```sh
 ./gradlew bootRun
+```
+
+## Tests
+
+Run tests this project:
+
+```sh
+./gradlew test
+```
+
+## Checkstyle
+
+Runs Checkstyle against on Java source files:
+
+```sh
+./gradlew checkstyleMain
 ```
 
 ## Postman Collection
