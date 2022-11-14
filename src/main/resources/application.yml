@@ -8,6 +8,10 @@ spring:
         one-indexed-parameters: true
         default-page-size: 10
         max-page-size: 500
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
 management:
   endpoints:
     web:
