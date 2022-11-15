@@ -55,7 +55,7 @@ public class CoursesController {
     @PathVariable("course_id") Long courseId,
     @PathVariable("student_id") Long studentId
   ) {
-    return courseStudentService.assignStudentToCourse(courseId, studentId);
+    return courseStudentService.assignCourseToStudent(courseId, studentId);
   }
 
 }

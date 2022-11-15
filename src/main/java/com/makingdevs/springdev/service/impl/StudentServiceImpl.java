@@ -9,6 +9,7 @@ import com.makingdevs.springdev.model.request.StudentRequest;
 import com.makingdevs.springdev.repository.courses.StudentRepository;
 import com.makingdevs.springdev.service.StudentService;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -19,6 +20,7 @@ import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
+@Slf4j
 public class StudentServiceImpl implements StudentService {
 
   private final StudentRepository studentRepository;
@@ -26,6 +28,8 @@ public class StudentServiceImpl implements StudentService {
   @Override
   @Transactional(readOnly = true)
   public PageDto<StudentDto> findAllStudents(Pageable pageable) {
+    log.info("Find all students");
+
     Page<Student> page = studentRepository.findAll(pageable);
     return StudentMapper.toPage(page);
   }
@@ -33,6 +37,8 @@ public class StudentServiceImpl implements StudentService {
   @Override
   @Transactional(readOnly = true)
   public Student findStudentById(Long id) {
+    log.info("Find student by id: " + id);
+
     Optional<Student> student = studentRepository.findById(id);
 
     if (student.isPresent()) {
@@ -45,6 +51,8 @@ public class StudentServiceImpl implements StudentService {
   @Override
   @Transactional(propagation = Propagation.REQUIRES_NEW)
   public StudentDto saveStudent(StudentRequest studentRequest) {
+    log.info("Save student by request: " + studentRequest);
+
     Optional<Student> studentFound = findStudentByDni(
       studentRequest.getDni()
     );
@@ -59,6 +67,8 @@ public class StudentServiceImpl implements StudentService {
 
   @Transactional(readOnly = true)
   private Optional<Student> findStudentByDni(String dni) {
+    log.info("Find student by dni: " + dni);
+
     return studentRepository.findOneByDni(dni);
   }
 

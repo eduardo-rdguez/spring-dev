@@ -13,6 +13,7 @@ import com.makingdevs.springdev.service.CourseService;
 import com.makingdevs.springdev.service.DepartmentService;
 import com.makingdevs.springdev.service.InstructorService;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -22,6 +23,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.Optional;
 
 @Service
+@Slf4j
 @RequiredArgsConstructor
 public class CourseServiceImpl implements CourseService {
 
@@ -32,12 +34,16 @@ public class CourseServiceImpl implements CourseService {
   @Override
   @Transactional(readOnly = true)
   public PageDto<CourseDto> findAllCourses(Pageable pageable) {
+    log.info("Find all courses");
+
     Page<Course> page = courseRepository.findAll(pageable);
     return CourseMapper.toPage(page);
   }
 
   @Transactional(readOnly = true)
   public Course findCourseById(Long id) {
+    log.info("Find course by id: " + id);
+
     Optional<Course> course = courseRepository.findById(id);
 
     if (course.isPresent()) {
@@ -49,21 +55,27 @@ public class CourseServiceImpl implements CourseService {
 
   @Transactional(readOnly = true)
   private Optional<Course> findCourseByTitle(String title) {
+    log.info("Find course by title: " + title);
+
     return courseRepository.findOneByTitleIgnoreCase(title);
   }
 
   @Override
   @Transactional(propagation = Propagation.REQUIRES_NEW)
   public CourseDto saveCourse(CourseRequest courseRequest) {
-    String courseTitle = courseRequest.getTitle();
-    Long instructorId = courseRequest.getInstructorId();
-    Long departmentId = courseRequest.getDepartmentId();
+    log.info("Save a course by request: " + courseRequest.toString());
 
+    String courseTitle = courseRequest.getTitle();
     Optional<Course> courseFound = findCourseByTitle(courseTitle);
-    Instructor instructorFound = instructorService.findInstructorById(instructorId);
-    Department departmentFound = departmentService.findDepartmentById(departmentId);
 
     if (!courseFound.isPresent()) {
+      Instructor instructorFound = instructorService.findInstructorById(
+        courseRequest.getInstructorId()
+      );
+      Department departmentFound = departmentService.findDepartmentById(
+        courseRequest.getDepartmentId()
+      );
+
       Course course = CourseMapper.toEntity(
         courseTitle,
         instructorFound,
@@ -78,6 +90,8 @@ public class CourseServiceImpl implements CourseService {
   @Override
   @Transactional(propagation = Propagation.MANDATORY)
   public Course saveCourse(Course course) {
+    log.info("Save a course by entity: " + course.toString());
+
     return courseRepository.save(course);
   }
 

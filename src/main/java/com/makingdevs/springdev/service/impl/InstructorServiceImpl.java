@@ -11,6 +11,7 @@ import com.makingdevs.springdev.repository.courses.InstructorRepository;
 import com.makingdevs.springdev.service.InstructorDetailService;
 import com.makingdevs.springdev.service.InstructorService;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -21,6 +22,7 @@ import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
+@Slf4j
 public class InstructorServiceImpl implements InstructorService {
 
   private final InstructorRepository instructorRepository;
@@ -29,6 +31,8 @@ public class InstructorServiceImpl implements InstructorService {
   @Override
   @Transactional(readOnly = true)
   public PageDto<InstructorDto> findAllInstructors(Pageable pageable) {
+    log.info("Find all instructors");
+
     Page<Instructor> page = instructorRepository.findAll(pageable);
     return InstructorMapper.toPage(page);
   }
@@ -36,6 +40,8 @@ public class InstructorServiceImpl implements InstructorService {
   @Override
   @Transactional(readOnly = true)
   public Instructor findInstructorById(Long id) {
+    log.info("Find instructor by id: " + id);
+
     Optional<Instructor> instructor = instructorRepository.findById(id);
 
     if (instructor.isPresent()) {
@@ -48,6 +54,8 @@ public class InstructorServiceImpl implements InstructorService {
   @Override
   @Transactional(propagation = Propagation.REQUIRES_NEW)
   public InstructorDto saveInstructor(InstructorRequest instructorRequest) {
+    log.info("Save instructor by request: " + instructorRequest.toString());
+
     InstructorDetail instructorDetail =
       instructorDetailService.saveInstructorDetail(instructorRequest);
     Instructor instructor = InstructorMapper.toEntity(instructorRequest, instructorDetail);

@@ -7,12 +7,14 @@ import com.makingdevs.springdev.mapper.CourseMapper;
 import com.makingdevs.springdev.service.CourseService;
 import com.makingdevs.springdev.service.CourseStudentService;
 import com.makingdevs.springdev.service.StudentService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
+@Slf4j
 public class CourseStudentServiceImpl implements CourseStudentService {
 
   @Autowired
@@ -22,7 +24,9 @@ public class CourseStudentServiceImpl implements CourseStudentService {
 
   @Override
   @Transactional(propagation = Propagation.REQUIRES_NEW)
-  public CourseDto assignStudentToCourse(Long courseId, Long studentId) {
+  public CourseDto assignCourseToStudent(Long courseId, Long studentId) {
+    log.info("Assign course with id: " + courseId + " to student with id: " + studentId);
+
     Course courseFound = courseService.findCourseById(courseId);
     Student studentFound = studentService.findStudentById(studentId);
 
