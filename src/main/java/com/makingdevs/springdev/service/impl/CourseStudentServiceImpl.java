@@ -23,7 +23,7 @@ public class CourseStudentServiceImpl implements CourseStudentService {
   private StudentService studentService;
 
   @Override
-  @Transactional(propagation = Propagation.REQUIRES_NEW)
+  @Transactional(propagation = Propagation.REQUIRED)
   public CourseDto assignCourseToStudent(Long courseId, Long studentId) {
     log.info("Assign course with id: " + courseId + " to student with id: " + studentId);
 

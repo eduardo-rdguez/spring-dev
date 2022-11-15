@@ -18,7 +18,7 @@ public class InstructorDetailServiceImpl implements InstructorDetailService {
 
   private final InstructorDetailRepository instructorDetailRepository;
 
-  @Transactional(propagation = Propagation.MANDATORY)
+  @Transactional(propagation = Propagation.REQUIRES_NEW)
   public InstructorDetail saveInstructorDetail(InstructorRequest instructorRequest) {
     log.info("Save instructor detail by request: " + instructorRequest.toString());
 

@@ -61,7 +61,7 @@ public class CourseServiceImpl implements CourseService {
   }
 
   @Override
-  @Transactional(propagation = Propagation.REQUIRES_NEW)
+  @Transactional(propagation = Propagation.REQUIRED)
   public CourseDto saveCourse(CourseRequest courseRequest) {
     log.info("Save a course by request: " + courseRequest.toString());
 

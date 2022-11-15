@@ -49,7 +49,7 @@ public class StudentServiceImpl implements StudentService {
   }
 
   @Override
-  @Transactional(propagation = Propagation.REQUIRES_NEW)
+  @Transactional(propagation = Propagation.REQUIRED)
   public StudentDto saveStudent(StudentRequest studentRequest) {
     log.info("Save student by request: " + studentRequest);
 

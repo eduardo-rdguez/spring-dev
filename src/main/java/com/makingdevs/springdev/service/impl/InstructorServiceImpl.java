@@ -52,7 +52,7 @@ public class InstructorServiceImpl implements InstructorService {
   }
 
   @Override
-  @Transactional(propagation = Propagation.REQUIRES_NEW)
+  @Transactional(propagation = Propagation.REQUIRED)
   public InstructorDto saveInstructor(InstructorRequest instructorRequest) {
     log.info("Save instructor by request: " + instructorRequest.toString());
 
