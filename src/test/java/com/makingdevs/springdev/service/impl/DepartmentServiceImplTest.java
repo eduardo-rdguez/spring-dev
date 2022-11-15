@@ -23,7 +23,7 @@ import java.util.List;
 import java.util.Optional;
 
 @SpringBootTest
-@ActiveProfiles("dev")
+@ActiveProfiles("default")
 class DepartmentServiceImplTest {
 
   @InjectMocks
