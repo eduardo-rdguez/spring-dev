@@ -7,10 +7,13 @@ import com.makingdevs.springdev.exception.EntityNotFoundException;
 import com.makingdevs.springdev.model.request.DepartmentRequest;
 import com.makingdevs.springdev.repository.departments.DepartmentRepository;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInstance;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
+import org.mockito.Spy;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
@@ -24,6 +27,7 @@ import java.util.Optional;
 
 @SpringBootTest
 @ActiveProfiles("default")
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
 class DepartmentServiceImplTest {
 
   @InjectMocks
@@ -31,6 +35,14 @@ class DepartmentServiceImplTest {
 
   @Mock
   private DepartmentRepository departmentRepository;
+
+  @Spy
+  private Department departmentSpy = new Department();
+
+  @BeforeAll
+  public void setup() {
+    departmentSpy.setId(1L);
+  }
 
   @Test
   void findAllDepartments() {
@@ -57,7 +69,7 @@ class DepartmentServiceImplTest {
     Department department = departmentService.findDepartmentById(1L);
 
     Assertions.assertNotNull(department);
-    Assertions.assertEquals(department.getId(), 1L);
+    Assertions.assertEquals(department.getId(), departmentSpy.getId());
   }
 
   @Test
@@ -81,7 +93,7 @@ class DepartmentServiceImplTest {
     Optional<Department> department = departmentService.findDepartmentByName("Department");
 
     Assertions.assertTrue(department.isPresent());
-    Assertions.assertEquals(department.get().getId(), 1L);
+    Assertions.assertEquals(department.get().getId(), departmentSpy.getId());
     Assertions.assertEquals(department.get().getName(), "Department");
   }
 
@@ -101,7 +113,7 @@ class DepartmentServiceImplTest {
     DepartmentDto department = departmentService.saveDepartment(departmentRequest);
 
     Assertions.assertNotNull(department);
-    Assertions.assertEquals(department.getId(), 1L);
+    Assertions.assertEquals(department.getId(), departmentSpy.getId());
     Assertions.assertEquals(department.getName(), departmentRequest.getName());
   }
 
@@ -121,7 +133,7 @@ class DepartmentServiceImplTest {
     DepartmentDto departmentDto = departmentService.saveDepartment(departmentRequest);
 
     Assertions.assertNotNull(departmentDto);
-    Assertions.assertEquals(departmentDto.getId(), 1L);
+    Assertions.assertEquals(departmentDto.getId(), departmentSpy.getId());
     Assertions.assertEquals(departmentDto.getName(), departmentRequest.getName());
   }
 
